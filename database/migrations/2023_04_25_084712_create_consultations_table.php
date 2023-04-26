@@ -17,11 +17,14 @@ class CreateConsultationsTable extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained('patients');
             $table->string('type_consult');
-            $table->float('montant_consult');
+            $table->float('montant_consult')->default(0);
             $table->integer('nombre_consult');
             $table->string('type_examen');
-            $table->float('montant_examen');
+            $table->float('montant_examen')->default(0);
+            $table->integer('nombre_examen');
             $table->date('date_consult');
+            $table->float('commission_cabinet')->default(0);
+            $table->float('net_percu')->default(0);
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

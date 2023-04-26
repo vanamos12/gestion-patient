@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/patient/create', [App\Http\Controllers\HomeController::class, 'patientCreate'])->name('patient.create');
 Route::post('/patient/store', [App\Http\Controllers\HomeController::class, 'patientStore'])->name('patient.store');
+
+Route::post('/consultation/store', [App\Http\Controllers\HomeController::class, 'consultationStore'])->name('consultation.store');
+Route::get('/consultation/list', [App\Http\Controllers\HomeController::class, 'consultationList'])->name('consultation.list');

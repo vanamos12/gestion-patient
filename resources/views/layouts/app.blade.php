@@ -61,7 +61,12 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se deconnecter') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ route('patient.create') }}"
+                                       >
+                                        {{ __('Creer Patient') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -79,5 +84,33 @@
             @yield('content')
         </main>
     </div>
+
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
+  <script>
+  $( function() {
+    
+    $( "#patient" ).autocomplete({
+      minLength: 0,
+      source: patients,
+      focus: function( event, ui ) {
+        $( "#patient" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( "#patient" ).val( ui.item.label );
+         $( "#patient_id" ).val( ui.item.value );
+        return false;
+      }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li style='background-color:white;border-bottom:2px solid lightgray;'>" )
+        .append( `<div>${item.label}</div>` )
+        .appendTo( ul );
+    };
+ 
+   
+  } );
+  </script>
 </body>
 </html>
