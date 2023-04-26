@@ -12,6 +12,9 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+                        <?php
+                            session(['status' => '']) 
+                        ?>
                     @endif
 
                     <form method="POST" action="{{ route('consultation.store') }}">

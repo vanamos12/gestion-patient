@@ -12,6 +12,9 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+                        <?php
+                            session(['status' => '']) 
+                        ?>
                     @endif
 
                     <table class="table table-success table-striped">
